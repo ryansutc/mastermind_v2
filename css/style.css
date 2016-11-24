@@ -1,0 +1,342 @@
+/* ---------------------------------
+   Mastermind Puzzle Stylesheet
+   INFT2100 Final Assign: Scrum 
+
+   Author: Ryan Sutcliffe (w0143446)
+   Date: Nov 2016
+  
+   Supporting Files: green.jpg, gold.jpg
+* -----------------------------------
+*/
+
+
+
+table {
+		border-collapse: collapse;
+		padding: 10px;
+		}
+		
+.spuzzle td {
+		border: solid 1px;
+		width: 50px;
+		}
+		
+.spuzzle th {
+		font-size: 8px;
+		font-color: gray;
+		width: 10px;
+		}
+		
+.spuzzle tr {
+		height: 50px;
+		}
+		
+.rank td {
+		width: 25px;
+		height: 15px;
+		border: solid 1px;
+		text-align: center;
+		font-size: 10px;
+		font-style: bold;
+		}
+.rank tr {
+		height: 25px;
+		}
+
+		
+.gold {
+		/*background-image: url("gold.jpg"); */
+		background-position: 50% 50%;
+		background-color: #f2f2f2;
+		}
+		
+.green {
+		/* background-image: url("green.jpg"); */
+		background-position: 50% 50%;
+		background-color: white;
+		}
+
+.buttons {
+	margin: 5px;
+	padding: 5px;
+	text-align: right;
+	border: solid 1px;
+	}
+	
+textarea {
+	display: block;
+	width: 40px;
+	height: 40px;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: none;
+	overflow: auto;
+	font-size: 30px;
+	font-color: blue;
+	text-align: center;
+	vertical-align: text-bottom;
+	resize:none;
+}
+	
+	#mainframe {height: auto;
+		/*border: 1px dashed #f00;*/
+		margin: auto;
+		/*margin-left: 5%; 
+		margin-right: 5%; */
+		padding: 1%; 
+		width: 95%;
+		max-width: 1000px;
+		min-width: 350px;
+		background-color: #f2f2f2;
+		font-size: 11pt; 
+		text-align: justify;
+		/*border rounding */
+		-moz-border-radius: 15px;
+		-webkit-border-radius: 15px;
+		border-radius: 15px;
+				}
+				
+		
+	#menuleft  {
+		width:14%;
+		min-width: 80px;
+		max-width: 200px;
+		margin-top:25px;
+		margin-right:1px;
+		margin-bottom:25px;
+		/*border-right-width:2px;
+		border-right-style: double;
+		border-right-color:#CCCCCC; */
+		float:left;
+		padding:15px;
+		background-color:#f2f2f2 /*#666666;*/
+		}
+	@media screen and (max-width: 600px){
+		#menuleft  {display: none; width:0%}		
+	}
+	
+	#menucentre	{ 
+		float:right;
+		padding-right:15px;
+		width:76%;
+		margin-right:2px;
+		margin-left:2px;
+		margin-bottom:25px;
+		border-left: 1px solid #CCCCCC;
+		background-color:#f2f2f2
+		}
+		
+	@media screen and (max-width: 500px){
+		#menucentre {width: 95%; float:center;}
+	}
+	
+	#menutopholder {
+		background-color:white
+		}
+	#menutop {
+		background-color:white; /*this could be swapped for a background image nicely */
+		font-size: 11pt;
+		/*
+		 background: url([IMAGE.png]) bottom right no-repeat;
+		-o-background-size: contain;
+		-moz-background-size: contain;
+		-webkit-background-size: contain;
+		background-size: contain;
+		*/
+		/*border rounding */
+		-moz-border-radius-topright: 15px;
+		-webkit-border-top-right-radius: 15px;
+		border-top-right-radius: 15px;
+		-moz-border-radius-topleft: 15px;
+		-webkit-border-top-left-radius: 15px;
+		border-top-left-radius: 15px
+		} 
+	
+	#quote {border-left: 0px solid #CCCCCC;
+		/* float: center; */
+		width: 50%;
+		padding-right: 15px;
+		margin: auto
+		}
+		   
+	#logo {
+		float:right;
+		vertical-align:text-bottom;
+		height:80px;
+		-moz-border-radius-topright: 15px;
+		-webkit-border-top-right-radius: 15px;
+		border-top-right-radius: 15px
+		}
+		
+	#skills li	{
+		text-align:left; 
+		margin-left:20%; 
+		margin-top:5px
+		} /*Page specific (cv.html) */
+	
+	#mainwrapper {
+		float: left;
+	}
+	
+	.textmain {margin-left:2%; margin-right: 2%}
+	
+	/*Page specific (index.html) */
+	.textmainfull {margin-left:2%; margin-right: 195px}
+	@media screen and (max-width: 600px){
+		.textmainfull {margin-left:2%; margin-right: 2%}
+	}
+	
+	.skilllist {margin-left:2%;}
+	.firstcharacter { 
+		float: left; 
+		color: black; 
+		font-size: 50px; 
+		line-height: 40px; 
+		padding-top: 4px; 
+		padding-right: 8px; 
+		padding-left: 3px; 
+		}
+	/* these items for worksamples page only: */		
+	.project {
+		float: left;
+		border: 1px solid #CC6600;
+		padding: 3px;
+		margin: 6px;
+		width: 45%;
+		min-width: 300px;
+		background-color: white;
+		height: 240px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		/*border rounding */
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		}
+	
+	.projectdetail {
+		padding-top: 5px;
+		padding-bottom: 25px;
+		padding-left: 15px;
+		padding-right: 15px;
+		}
+		
+	.projecttext {
+		/*float:center; */
+		width:100%;
+		border: none;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		height: 90%;
+		}
+	
+	.projecttextspacer {
+		/*float:center; */
+		width: 100%;
+		height: 7%;
+		border: none;
+		padding: 0px;
+		text-align: right;
+		}
+			
+	/* end of worksamples specific code */
+	
+	
+	div.clear {clear: both}
+	
+	.links {text-align:center}
+	
+	.links a  {color:#003366;
+		font-family:arial;  
+		font-weight:bold;
+		letter-spacing:1px;			
+		text-decoration:none
+		}
+	.links a:visited {color:#666666; text-decoration:none}
+	.links a:hover 	{color:#CC6600}
+	.links a:active 	{color:green}
+	
+	textarea {background-color:#FFFFFF}
+	table {font-size:9pt}
+   
+	iframe {border-style: none; width: 100%; height: 160px}
+	
+	.footer {
+			padding: 2px;
+			margin-left: 10px;
+			margin-right: 10px;
+			width: auto;
+			clear: both
+			}
+	.footertext {
+			font-size:7pt;
+			font-family:"times new roman"; 
+			color:black
+			}
+	
+	.jobtitle{font-size:12pt} /*Page specific (worksamples.html) */
+	/*Page specific (background.html) */
+	p.dropcaps:first-letter {
+		font-size: 400%;
+		float: left;
+		line-height: 0.8;
+	}
+	
+	
+	p#quotetop			{margin-left:100px; font-family:"Bookman Old Style"; font-style:italic; color:#666666}
+	p#quotebottom		{margin-left:150px; font-family:"Bookman Old Style"; font-style:italic; color:#666666}
+	
+	
+	#title {margin-left:100px; 
+		font-family:"Trebuchet MS";
+		font-size:28pt; 
+		text-align:left;
+		letter-spacing:-3px; 
+		font-weight:bold; 
+		color:#666666; 
+		margin-bottom:-5px}
+				
+	#orange {color:#CC6600}
+
+	#buttons a   {border:inset 3px #CCCCCC; padding: 3px 10px; color:#FFFFFF; 
+		background-color:#000066; font-family:arial; font-size:9px; 
+		text-align:center; text-decoration:none; margin:10px}
+		
+	#buttons a:link {color:white}
+	#buttons a:visited {color:#CCCCCC}
+	#buttons a:hover {color:#66CCFF; border: outset 2px #cccccc}
+	#buttons a:active {color:#DDA0DD; border:outset 2px #000000}
+
+	#linktitle {font-weight:bold; color:#666666; font-size:9pt}
+	
+	#listlink  {
+		list-style-image:url('../images/blockorangesm.png');
+		margin-left:-10%;
+		font-size:9pt;
+		}
+	#listlink li	{margin-left:1px;margin-top:16px}
+	#listlink li a:link  {color:#666666; text-decoration:none}
+	#listlink li a:visited  {text-decoration:none}
+	#listlink li a:hover  {color:#66CCFF}
+	#listlink li a:active  {color:#DDA0DD}
+	
+	/*Below are index page specific items*/
+	/*Index*/
+	#tblmycomments {
+		background-color:white;
+		border-width:1px;
+		border-color: #CC6600;
+		
+		border-style: solid;
+		padding: 5px
+	}
+	
+	#photobox {
+		float:right;
+		margin-bottom:1px;
+		width: 190px;
+	}
