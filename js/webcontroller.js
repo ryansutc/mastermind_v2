@@ -5,8 +5,28 @@ $(document).ready(function (curProb) {
 	var rowno = 1;
 	//alert(color);
 	
-
+	//load solution
+	var solution = loadProblem();
+	$("#solutionA").text(solution[0]);
+	$("#solutionB").text(solution[1]);
+	$("#solutionC").text(solution[2]);
+	$("#solutionD").text(solution[3]);
 	
+	$("#solutionA").hide();
+	$("#solutionB").hide();
+	$("#solutionC").hide();
+	$("#solutionD").hide();
+	$("#NewGame").hide();
+	
+	//handle a click on the answer cell to show answer
+	 $("#answercell").click(function (event) {
+       //alert(event.target.innerHTML);
+		$("#solutionA").show();
+		$("#solutionB").show();
+		$("#solutionC").show();
+		$("#solutionD").show();
+		$("#NewGame").show();
+    });
 	
 	//handle click of a piece to change selected COLOR
 	 $(".piece").click(function (event) {

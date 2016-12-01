@@ -6,7 +6,7 @@ function randomProblem(){
 	//list = Math.floor((Math.random() * 6) + 1);
 	list = [];
 	for (i=0; i < 4; i++){
-		list += colorList[Math.floor((Math.random() * 6) + 1)];
+		list[i] = colorList[Math.floor((Math.random() * 5))];
 	}
 	//alert(list);
 	return list;
