@@ -5,6 +5,9 @@ $(document).ready(function (curProb) {
 	var rowno = 1;
 	//alert(color);
 	
+
+	
+	
 	//handle click of a piece to change selected COLOR
 	 $(".piece").click(function (event) {
        //alert(event.target.innerHTML);
