@@ -2,15 +2,18 @@
 //JQuery Stuff
 $(document).ready(function (curProb) {
     var color = $("#curPiece").text();
+	var curpiece = $("#curPiece")[0].innerHTML;
 	var rowno = 1;
 	//alert(color);
 	
 	//load solution
 	var solution = loadProblem();
-	$("#solutionA").text(solution[0]);
-	$("#solutionB").text(solution[1]);
-	$("#solutionC").text(solution[2]);
-	$("#solutionD").text(solution[3]);
+	var solutionspan = textToSpan(solution);
+	spanToText(solutionspan);
+	$("#solutionA")[0].innerHTML = solutionspan[0];
+	$("#solutionB")[0].innerHTML = solutionspan[1];
+	$("#solutionC")[0].innerHTML = solutionspan[2];
+	$("#solutionD")[0].innerHTML = solutionspan[3];
 	
 	$("#solutionA").hide();
 	$("#solutionB").hide();
@@ -28,11 +31,30 @@ $(document).ready(function (curProb) {
 		$("#NewGame").show();
     });
 	
+	//handle a click on the new game cell to load new game
+	 $("#NewGame").click(function (event) {
+		var solution = loadProblem();
+		var solutionspan = textToSpan(solution);
+		$("#solutionA")[0].innerHTML = solutionspan[0];
+		$("#solutionB")[0].innerHTML = solutionspan[1];
+		$("#solutionC")[0].innerHTML = solutionspan[2];
+		$("#solutionD")[0].innerHTML = solutionspan[3];
+
+		$("#solutionA").hide();
+		$("#solutionB").hide();
+		$("#solutionC").hide();
+		$("#solutionD").hide();
+		$("#NewGame").hide();
+		
+		$(".a").empty();
+		$(".b").empty();
+		$(".c").empty();
+		$(".d").empty();
+    });
+	
 	//handle click of a piece to change selected COLOR
 	 $(".piece").click(function (event) {
-       //alert(event.target.innerHTML);
-	   $("#curPiece").text(event.target.innerHTML);
-		color = event.target.innerHTML;
+	   $("#curPiece")[0].innerHTML = this.innerHTML;
     });
 
 	//handle row class clicks to ADD PEG
@@ -40,7 +62,7 @@ $(document).ready(function (curProb) {
 		//alert($(this)[0].id);
 		if($(event.target).attr('class') != "guide") {
 			if($(this)[0].id == "row" + rowno){
-				event.target.innerText = color;
+				event.target.innerHTML = $("#curPiece")[0].innerHTML;
 			}
 		}
 	});
@@ -61,6 +83,10 @@ $(document).ready(function (curProb) {
 				}
 			});
 			if(error == 0){
+				var colors = [];
+				myrow.children('td').each(function(index, element){
+					colors.push(element);
+				alert(spanlist);
 				rowno = rowno +1;
 			}
 			else {
@@ -90,50 +116,28 @@ $(document).ready(function (curProb) {
     })
 });
 
-
-function loadNewProb($num){
-    // get the fileNo to figure which problem to load.
-
-    if ($num === 1){
-        myproblem = q1;
-    }
-    else if ($num === 2){
-        myproblem = q2;
-    }
-    else if ($num === 3){
-        myproblem = q3;
-    }
-    else if ($num === 4){
-        myproblem = q4;
-    }
-    else if ($num === 5){
-        myproblem = q5;
-    }
-    else if ($num === 6){
-        myproblem = q6;
-    }
-
-    //document.getElementById("problemID").innerHTML = "Problem #" + sudokuXMLfileNo;
-
-
-    for (var x in myproblem) {
-        var mytd = document.getElementById(x);
-        for (var i = 0; i < mytd.childNodes.length; i++) {
-            if (mytd.childNodes[i].className == "answer") {
-                mytd.childNodes[i].innerText = myproblem[x];
-                break;
-            }
-        }
-
-        if (x == 'answer') {
-            //alert(document.getElementById("answer").innerText);
-            document.getElementById("answer").innerText = myproblem[x];
-        }
-    }
-
+function textToSpan(text){
+	
+	var span = [];
+	for (i=0; i < text.length; i++){
+		span[i] = "<span class='" + text[i] + "'>&#9679;</span>";
+	}
+	return span;
+	
+	
 }
 
-
+function spanToText(span){
+	var text = [];
+	for (i=0; i < span.length; i++){
+		var html = $.parseHTML( span[i]);
+		//alert(typeof(html[i]));
+		text[i] = html[0].classList[0];
+		
+	}
+	alert(text);
+	return text;
+}
 
 
 
