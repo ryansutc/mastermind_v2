@@ -17,7 +17,12 @@ function loadProblem() {
 	
 }
 
-function testRow() {
-	
+function testRow(colors, solution) {
+	if (colors.toString() == solution.toString()) {
+		return true;
+	} else {
+		return false;
+	}
 	
 }
+

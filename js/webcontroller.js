@@ -5,11 +5,12 @@ $(document).ready(function (curProb) {
 	var curpiece = $("#curPiece")[0].innerHTML;
 	var rowno = 1;
 	//alert(color);
-	
+
 	//load solution
 	var solution = loadProblem();
 	var solutionspan = textToSpan(solution);
-	spanToText(solutionspan);
+	
+	//spanToText(solutionspan);
 	$("#solutionA")[0].innerHTML = solutionspan[0];
 	$("#solutionB")[0].innerHTML = solutionspan[1];
 	$("#solutionC")[0].innerHTML = solutionspan[2];
@@ -85,9 +86,17 @@ $(document).ready(function (curProb) {
 			if(error == 0){
 				var colors = [];
 				myrow.children('td').each(function(index, element){
-					colors.push(element);
-				alert(spanlist);
+					if (element.className != "guide"){
+						colors.push(element);
+					};
+				});
 				rowno = rowno +1;
+				if (testRow(spanToText2(colors), solution)){
+					alert("You are correct!");
+				}
+				else {
+					alert("You're wrong. You hoser. Try again.");
+				}
 			}
 			else {
 				alert("Please fill out all cells");
@@ -131,13 +140,22 @@ function spanToText(span){
 	var text = [];
 	for (i=0; i < span.length; i++){
 		var html = $.parseHTML( span[i]);
-		//alert(typeof(html[i]));
+		alert(typeof(html[i]));
 		text[i] = html[0].classList[0];
-		
+		alert(text[i]);
 	}
 	alert(text);
 	return text;
 }
 
+function spanToText2(span){
+	var text = [];
+	var el = document.createElement('html');
+	for (i=0; i < span.length; i++){
+		el.innerHTML = span[i];
+		text = el.className;
+	};
+	return text;
+}
 
 
