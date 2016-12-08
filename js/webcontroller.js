@@ -67,6 +67,7 @@ $(document).ready(function (curProb) {
 			}
 		}
 	});
+	
 	//Click to test Guess
    $(".guide").click(function (event) {
 		//alert("Ive been clicked");
@@ -90,21 +91,28 @@ $(document).ready(function (curProb) {
 						colors.push(element);
 					};
 				});
-				rowno = rowno +1;
+				
 				if (testRow(spanToText2(colors), solution)){
 					alert("You are correct!");
 				}
 				else {
 					alert("You're wrong. You hoser. Try again.");
+					//waiting for algorithm. Here is dummy feedback for testing
+					var result = randomResult();
+					alert(result);
+					displayFeedback(result, rowno);
 				}
+				$("#row" + rowno).find(".rank");
+				randomResult();
 			}
 			else {
 				alert("Please fill out all cells");
 			}
+			rowno = rowno +1;
 		}
 	}); 
 
-	
+
 	
 	
     $("#back").click(function () {
@@ -158,4 +166,26 @@ function spanToText2(span){
 	return text;
 }
 
+function resultNoToSpan(num){
+	if (num == 0){
+		return null;
+	}
+	else if(num == 1){
+		//return "white"
+		return "<span class='white'>&#9679;</span>";
+	}
+	else if (num == 2){
+		//return "red";
+		return "<span class='red'>&#9679;</span>";
+	}
+	else {
+		return "error";
+	}
+}
+
+function displayFeedback(result, rowno) {
+	for (i=1; i < 5; i++){
+		$( "#row" + rowno).find( ".rank" + i)[0].innerHTML = "<span class='white'>&#9679;</span>"; //resultNoToSpan(result[i]);
+	}
+}
 

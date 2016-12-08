@@ -330,8 +330,8 @@ textarea {
 	}
 	
 
-	.black, .blue, .yellow, .green, .red, .orange {
-		font-size: 40pt;
+	.a, .b, .c, .d, .piece {
+		font-size: 40;
 		background-color: white;
 		color: black;
 	}

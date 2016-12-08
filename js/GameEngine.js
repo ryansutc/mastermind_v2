@@ -26,3 +26,22 @@ function testRow(colors, solution) {
 	
 }
 
+//dummy placeholder until real results calculated
+function randomResult(){
+	/* Randomly Generate a number between
+	0-2
+	*/
+	list = [];
+	for (i=0; i < 4; i++){
+		list[i] = Math.floor((Math.random() * 2));
+	}
+	orderResult(list);
+	return list;
+}
+
+//order result so that good pegs are added first
+function orderResult(list){
+	//sort descending
+	list.sort(function(a, b){return b-a});
+	return list;
+}
