@@ -70,7 +70,7 @@ $(document).ready(function (curProb) {
 	
 	//Click to test Guess
    $(".guide").click(function (event) {
-		//alert("Ive been clicked");
+		alert(solution);
 		if(event.target.id == "answer" + rowno){
 			//make sure all four pieces are added
 			var myrow = $("#row" + rowno);
@@ -88,27 +88,28 @@ $(document).ready(function (curProb) {
 				var colors = [];
 				myrow.children('td').each(function(index, element){
 					if (element.className != "guide"){
-						colors.push(element);
+						colors.push($(element).children(0)[0].className);
 					};
 				});
-				
-				if (testRow(spanToText2(colors), solution)){
-					alert("You are correct!");
+
+				if (testRow(colors, solution)){
+					alert("You Win");
 				}
 				else {
-					alert("You're wrong. You hoser. Try again.");
 					//waiting for algorithm. Here is dummy feedback for testing
-					var result = randomResult();
+					//var result = randomResult();
+					//need to make COPY of array, rather than pass byRef!
+					var solutionCopy = solution.slice();
+					var result = checkGuess(colors, solutionCopy);
 					alert(result);
 					displayFeedback(result, rowno);
 				}
 				$("#row" + rowno).find(".rank");
-				randomResult();
+				rowno = rowno +1;
 			}
 			else {
 				alert("Please fill out all cells");
 			}
-			rowno = rowno +1;
 		}
 	}); 
 
@@ -148,11 +149,11 @@ function spanToText(span){
 	var text = [];
 	for (i=0; i < span.length; i++){
 		var html = $.parseHTML( span[i]);
-		alert(typeof(html[i]));
+		//alert(typeof(html[i]));
 		text[i] = html[0].classList[0];
-		alert(text[i]);
+		//alert(text[i]);
 	}
-	alert(text);
+	//alert(text);
 	return text;
 }
 
@@ -161,7 +162,8 @@ function spanToText2(span){
 	var el = document.createElement('html');
 	for (i=0; i < span.length; i++){
 		el.innerHTML = span[i];
-		text = el.className;
+		//alert(el);
+		text.push(el.class);
 	};
 	return text;
 }
@@ -172,7 +174,7 @@ function resultNoToSpan(num){
 	}
 	else if(num == 1){
 		//return "white"
-		return "<span class='white'>&#9679;</span>";
+		return "<span class='white'>o</span>";
 	}
 	else if (num == 2){
 		//return "red";
@@ -185,7 +187,8 @@ function resultNoToSpan(num){
 
 function displayFeedback(result, rowno) {
 	for (i=1; i < 5; i++){
-		$( "#row" + rowno).find( ".rank" + i)[0].innerHTML = "<span class='white'>&#9679;</span>"; //resultNoToSpan(result[i]);
+		$( "#row" + rowno).find( 
+				".rank" + i)[0].innerHTML = resultNoToSpan(result[i-1]); 
 	}
 }
 
