@@ -33,13 +33,6 @@ $(document).ready(function (curProb) {
 	
 	//handle a click on the new game cell to load new game
 	 $("#NewGame").click(function (event) {
-		var solution = loadProblem();
-		var solutionspan = textToSpan(solution);
-		$("#solutionA")[0].innerHTML = solutionspan[0];
-		$("#solutionB")[0].innerHTML = solutionspan[1];
-		$("#solutionC")[0].innerHTML = solutionspan[2];
-		$("#solutionD")[0].innerHTML = solutionspan[3];
-
 		$("#solutionA").hide();
 		$("#solutionB").hide();
 		$("#solutionC").hide();
@@ -50,6 +43,18 @@ $(document).ready(function (curProb) {
 		$(".b").empty();
 		$(".c").empty();
 		$(".d").empty();
+		
+		var solution = loadProblem();
+		var solutionspan = textToSpan(solution);
+		
+		$("#solutionA")[0].innerHTML = solutionspan[0];
+		$("#solutionB")[0].innerHTML = solutionspan[1];
+		$("#solutionC")[0].innerHTML = solutionspan[2];
+		$("#solutionD")[0].innerHTML = solutionspan[3];
+
+		
+		
+		
     });
 	
 	//handle click of a piece to change selected COLOR

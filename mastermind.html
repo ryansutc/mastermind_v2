@@ -8,209 +8,238 @@
 	</head>
 	<body>
 		<div id="mainframe">
-			<h1> Mastermind Game</h1>
-			<div class="menucentre">
-				<p> Pick Your Piece</p>
-				<table class="spuzzle" caption="pieces">
-					<tr>
-						<td class="piece" id="blackPiece"><span class="black">&#9679;</span></td>
-						<td class="piece" id="bluePiece"><span class="blue">&#9679;</span></td>
-						<td class="piece" id="yellowPiece"><span class="yellow">&#9679;</span></td>
-					</tr>
-					<tr>
-						<td class="piece" id="greenPiece"><span class="green">&#9679;</span></td>
-						<td class="piece" id="redPiece"><span class="red">&#9679;</span></td>
-						<td class="piece" id="orangePiece"><span class="orange">&#9679;</span></td>
-					</tr>
-				</table>
-				<p> Your Selected Piece </p>
-				<table class="spuzzle" caption="selected">
-					<tr>
-						<td class="piece" id="curPiece"><span class="black">&#9679;</span></td>
-					</tr>
-				</table>
-				<table class="spuzzle" caption="mastermind game">
-					<tr>
-						<th></th>
-						<th>1</th>
-						<th>2</th>
-						<th>3</th>
-						<th>4</th>
-						<th>A</th>
-					</tr>
-					<!--1-->
-					<tr class="row" id="row1">
-						<td class="guide">
-							<table class="rank">
-								<tr>
-									<td class="rank1">o</td>
-									<td class="rank2">o</td>
-								</tr>
-								<tr>
-									<td class="rank3">o</td>
-									<td class="rank4">o</td>
-								</tr>
-							</table>
-						</td>
-						<td class="a"></td>
-						<td class="b"></td>
-						<td class="c"></td>
-						<td class="d"></td>
-						<td class="guide" id="answer1">answer</td>
-					</tr>
-					<!--2-->
-					<tr class="row"  id="row2">
-						<td class="guide">
-							<table class="rank">
-								<tr>
-									<td class="rank1">o</td>
-									<td class="rank2">o</td>
-								</tr>
-								<tr>
-									<td class="rank3">o</td>
-									<td class="rank4">o</td>
-								</tr>
-							</table>
-						</td>
-						<td class="a"></td>
-						<td class="b"></td>
-						<td class="c"></td>
-						<td class="d"></td>
-						<td class="guide" id="answer2">answer</td>
-					</tr>
-					<!--3-->
-					<tr class="row"  id="row3">
-						<td class="guide">
-							<table class="rank">
-								<tr>
-									<td class="rank1">o</td>
-									<td class="rank2">o</td>
-								</tr>
-								<tr>
-									<td class="rank3">o</td>
-									<td class="rank4">o</td>
-								</tr>
-							</table>
-						</td>
-						<td class="a"></td>
-						<td class="b"></td>
-						<td class="c"></td>
-						<td class="d"></td>
-						<td class="guide" id="answer3">answer</td>
-					</tr>
-					<!--4-->
-					<tr class="row"  id="row4">
-						<td class="guide">
-							<table class="rank">
-								<tr>
-									<td class="rank1">o</td>
-									<td class="rank2">o</td>
-								</tr>
-								<tr>
-									<td class="rank3">o</td>
-									<td class="rank4">o</td>
-								</tr>
-							</table>
-						</td>
-						<td class="a"></td>
-						<td class="b"></td>
-						<td class="c"></td>
-						<td class="d"></td>
-						<td class="guide" id="answer4">answer</td>
-					</tr>
-					<!--5-->
-					<tr class="row"  id="row5">
-						<td class="guide">
-							<table class="rank">
-								<tr>
-									<td class="rank1">o</td>
-									<td class="rank2">o</td>
-								</tr>
-								<tr>
-									<td class="rank3">o</td>
-									<td class="rank4">o</td>
-								</tr>
-							</table>
-						</td>
-						<td class="a"></td>
-						<td class="b"></td>
-						<td class="c"></td>
-						<td class="d"></td>
-						<td class="guide" id="answer5">answer</td>
-					</tr>
-					<!--6-->
-					<tr class="row"  id="row6">
-						<td class="guide">
-							<table class="rank">
-								<tr>
-									<td class="rank1">o</td>
-									<td class="rank2">o</td>
-								</tr>
-								<tr>
-									<td class="rank3">o</td>
-									<td class="rank4">o</td>
-								</tr>
-							</table>
-						</td>
-						<td class="a"></td>
-						<td class="b"></td>
-						<td class="c"></td>
-						<td class="d"></td>
-						<td class="guide" id="answer6">answer</td>
-					</tr>
-					<!--7-->
-					<tr class="row"  id="row7">
-						<td class="guide">
-							<table class="rank">
-								<tr>
-									<td class="rank1">o</td>
-									<td class="rank2">o</td>
-								</tr>
-								<tr>
-									<td class="rank3">o</td>
-									<td class="rank4">o</td>
-								</tr>
-							</table>
-						</td>
-						<td class="a"></td>
-						<td class="b"></td>
-						<td class="c"></td>
-						<td class="d"></td>
-						<td class="guide" id="answer7">answer</td>
-					</tr>
-					<!--8-->
-					<tr class="row"  id="row8">
-						<td class="guide">
-							<table class="rank">
-								<tr>
-									<td class="rank1">o</td>
-									<td class="rank2">o</td>
-								</tr>
-								<tr>
-									<td class="rank3">o</td>
-									<td class="rank4">o</td>
-								</tr>
-							</table>
-						</td>
-						<td class="a"></td>
-						<td class="b"></td>
-						<td class="c"></td>
-						<td class="d"></td>
-						<td class="guide" id="answer8">answer</td>
-					</tr>
-				</table>
-				<p></p>
-				<table id="answer" class="spuzzle" caption="answer">
-					<tr>
-						<td id="answercell">Answer</td>
-						<td class="a" id="solutionA"></td>
-						<td class="b" id="solutionB"></td>
-						<td class="c" id="solutionC"></td>
-						<td class="d" id="solutionD"></td>
-						<td id="NewGame">New Game</td>
-					</tr>
-				</table>
+			<div id="menutop">
+				<img id="logo" src="img/mastermind.png" alt="A webgraphic"/>
+				<p id="title">Mastermind</p>
+				<hr />
+		
+				<div class="links">
+					<p><a href="about.html" title="About this Project">About Project</a> |
+						<a href="how.html" title="How to Play"> How to Play</a>
+					</p>
+				</div>
 			</div>
+		
+			<div class="menucentre">
+				<div class="centerwrapped">
+					<p> Pick Your Piece</p>
+					<table class="spuzzle" caption="pieces">
+						<tr>
+							<td class="piece" id="blackPiece"><span class="black">&#9679;</span></td>
+							<td class="piece" id="bluePiece"><span class="blue">&#9679;</span></td>
+							<td class="piece" id="yellowPiece"><span class="yellow">&#9679;</span></td>
+						</tr>
+						<tr>
+							<td class="piece" id="greenPiece"><span class="green">&#9679;</span></td>
+							<td class="piece" id="redPiece"><span class="red">&#9679;</span></td>
+							<td class="piece" id="orangePiece"><span class="orange">&#9679;</span></td>
+						</tr>
+					</table>
+					<p> Your Selected Piece </p>
+					<table class="spuzzle" caption="selected">
+						<tr>
+							<td class="piece" id="curPiece"><span class="black">&#9679;</span></td>
+						</tr>
+					</table>
+					<table id="maintable" class="spuzzle" caption="mastermind game">
+						<tr>
+							<th></th>
+							<th>1</th>
+							<th>2</th>
+							<th>3</th>
+							<th>4</th>
+							<th>A</th>
+						</tr>
+						<!--1-->
+						<tr class="row" id="row1">
+							<td class="guide">
+								<table class="rank">
+									<tr>
+										<td class="rank1">o</td>
+										<td class="rank2">o</td>
+									</tr>
+									<tr>
+										<td class="rank3">o</td>
+										<td class="rank4">o</td>
+									</tr>
+								</table>
+							</td>
+							<td class="a"></td>
+							<td class="b"></td>
+							<td class="c"></td>
+							<td class="d"></td>
+							<td class="guide" id="answer1">answer</td>
+						</tr>
+						<!--2-->
+						<tr class="row"  id="row2">
+							<td class="guide">
+								<table class="rank">
+									<tr>
+										<td class="rank1">o</td>
+										<td class="rank2">o</td>
+									</tr>
+									<tr>
+										<td class="rank3">o</td>
+										<td class="rank4">o</td>
+									</tr>
+								</table>
+							</td>
+							<td class="a"></td>
+							<td class="b"></td>
+							<td class="c"></td>
+							<td class="d"></td>
+							<td class="guide" id="answer2">answer</td>
+						</tr>
+						<!--3-->
+						<tr class="row"  id="row3">
+							<td class="guide">
+								<table class="rank">
+									<tr>
+										<td class="rank1">o</td>
+										<td class="rank2">o</td>
+									</tr>
+									<tr>
+										<td class="rank3">o</td>
+										<td class="rank4">o</td>
+									</tr>
+								</table>
+							</td>
+							<td class="a"></td>
+							<td class="b"></td>
+							<td class="c"></td>
+							<td class="d"></td>
+							<td class="guide" id="answer3">answer</td>
+						</tr>
+						<!--4-->
+						<tr class="row"  id="row4">
+							<td class="guide">
+								<table class="rank">
+									<tr>
+										<td class="rank1">o</td>
+										<td class="rank2">o</td>
+									</tr>
+									<tr>
+										<td class="rank3">o</td>
+										<td class="rank4">o</td>
+									</tr>
+								</table>
+							</td>
+							<td class="a"></td>
+							<td class="b"></td>
+							<td class="c"></td>
+							<td class="d"></td>
+							<td class="guide" id="answer4">answer</td>
+						</tr>
+						<!--5-->
+						<tr class="row"  id="row5">
+							<td class="guide">
+								<table class="rank">
+									<tr>
+										<td class="rank1">o</td>
+										<td class="rank2">o</td>
+									</tr>
+									<tr>
+										<td class="rank3">o</td>
+										<td class="rank4">o</td>
+									</tr>
+								</table>
+							</td>
+							<td class="a"></td>
+							<td class="b"></td>
+							<td class="c"></td>
+							<td class="d"></td>
+							<td class="guide" id="answer5">answer</td>
+						</tr>
+						<!--6-->
+						<tr class="row"  id="row6">
+							<td class="guide">
+								<table class="rank">
+									<tr>
+										<td class="rank1">o</td>
+										<td class="rank2">o</td>
+									</tr>
+									<tr>
+										<td class="rank3">o</td>
+										<td class="rank4">o</td>
+									</tr>
+								</table>
+							</td>
+							<td class="a"></td>
+							<td class="b"></td>
+							<td class="c"></td>
+							<td class="d"></td>
+							<td class="guide" id="answer6">answer</td>
+						</tr>
+						<!--7-->
+						<tr class="row"  id="row7">
+							<td class="guide">
+								<table class="rank">
+									<tr>
+										<td class="rank1">o</td>
+										<td class="rank2">o</td>
+									</tr>
+									<tr>
+										<td class="rank3">o</td>
+										<td class="rank4">o</td>
+									</tr>
+								</table>
+							</td>
+							<td class="a"></td>
+							<td class="b"></td>
+							<td class="c"></td>
+							<td class="d"></td>
+							<td class="guide" id="answer7">answer</td>
+						</tr>
+						<!--8-->
+						<tr class="row"  id="row8">
+							<td class="guide">
+								<table class="rank">
+									<tr>
+										<td class="rank1">o</td>
+										<td class="rank2">o</td>
+									</tr>
+									<tr>
+										<td class="rank3">o</td>
+										<td class="rank4">o</td>
+									</tr>
+								</table>
+							</td>
+							<td class="a"></td>
+							<td class="b"></td>
+							<td class="c"></td>
+							<td class="d"></td>
+							<td class="guide" id="answer8">answer</td>
+						</tr>
+					</table>
+					<p></p>
+					<table id="answer" class="spuzzle" caption="answer">
+						<tr>
+							<td id="answercell">Answer</td>
+							<td class="a" id="solutionA"></td>
+							<td class="b" id="solutionB"></td>
+							<td class="c" id="solutionC"></td>
+							<td class="d" id="solutionD"></td>
+							<td id="NewGame">Start a New Game</td>
+						</tr>
+					</table>
+					
+				</div>
+				
+			</div>
+					<div class="footer">
+			<div class="links"><p style="font-size:7pt; margin-top:-2px">
+				<a href="about.html" title="About this Project"> About Project</a> |
+				<a href="how.html" title="Resume / CV"> How to Play</a> 	
+				</p>
+			</div>
+			<hr />
+		
+			<p class="footertext">Last updated Dec 11, 2016<br />
+			Site and contents &copy; 2016 Games Inc. </p>
+
+			
 		</div>
+		</div>
+		
 	</body>
 </html>
