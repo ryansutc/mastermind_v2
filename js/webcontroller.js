@@ -24,7 +24,6 @@ $(document).ready(function (curProb) {
 	
 	//handle a click on the answer cell to show answer
 	 $("#answercell").click(function (event) {
-       //alert(event.target.innerHTML);
 		$("#solutionA").show();
 		$("#solutionB").show();
 		$("#solutionC").show();
@@ -70,7 +69,6 @@ $(document).ready(function (curProb) {
 	
 	//Click to test Guess
    $(".guide").click(function (event) {
-		alert(solution);
 		if(event.target.id == "answer" + rowno){
 			//make sure all four pieces are added
 			var myrow = $("#row" + rowno);
@@ -101,7 +99,7 @@ $(document).ready(function (curProb) {
 					//need to make COPY of array, rather than pass byRef!
 					var solutionCopy = solution.slice();
 					var result = checkGuess(colors, solutionCopy);
-					alert(result);
+					//alert(result);
 					displayFeedback(result, rowno);
 				}
 				$("#row" + rowno).find(".rank");

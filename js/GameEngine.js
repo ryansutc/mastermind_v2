@@ -14,7 +14,6 @@ function randomProblem(){
 
 function loadProblem() {
 	return randomProblem();
-	
 }
 
 function testRow(colors, solution) {
@@ -26,18 +25,6 @@ function testRow(colors, solution) {
 	
 }
 
-//dummy placeholder until real results calculated
-function randomResult(){
-	/* Randomly Generate a number between
-	0-2
-	*/
-	list = [];
-	for (i=0; i < 4; i++){
-		list[i] = Math.floor((Math.random() * 3));
-	}
-	orderResult(list);
-	return list;
-}
 
 //order result so that good pegs are added first
 function orderResult(list){
@@ -71,6 +58,7 @@ function checkGuess(guess, answer){
 						scoreArray.push(1);
 						guess[i] = null;
 						answer[ii] = null;
+						break;
 					}
 				}
 			}
