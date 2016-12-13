@@ -4,6 +4,7 @@ $(document).ready(function (curProb) {
     var color = $("#curPiece").text();
 	var curpiece = $("#curPiece")[0].innerHTML;
 	var rowno = 1;
+	var numofRows = 8;
 	//alert(color);
 
 	//load solution
@@ -31,6 +32,7 @@ $(document).ready(function (curProb) {
 		$("#NewGame").show();
     });
 	
+	
 	//handle a click on the new game cell to load new game
 	 $("#NewGame").click(function (event) {
 		$("#solutionA").hide();
@@ -44,6 +46,11 @@ $(document).ready(function (curProb) {
 		$(".c").empty();
 		$(".d").empty();
 		
+		$(".rank1").empty();
+		$(".rank2").empty();
+		$(".rank3").empty();
+		$(".rank4").empty();
+		
 		var solution = loadProblem();
 		var solutionspan = textToSpan(solution);
 		
@@ -51,10 +58,10 @@ $(document).ready(function (curProb) {
 		$("#solutionB")[0].innerHTML = solutionspan[1];
 		$("#solutionC")[0].innerHTML = solutionspan[2];
 		$("#solutionD")[0].innerHTML = solutionspan[3];
-
 		
 		
-		
+		$('#GameOver').text("");
+		rowno = 1;
     });
 	
 	//handle click of a piece to change selected COLOR
@@ -79,7 +86,7 @@ $(document).ready(function (curProb) {
 			var myrow = $("#row" + rowno);
 			var error = 0;
 			myrow.children('td').each(function(index, element){
-				if($.trim($(element).text()) == ""){
+				if($.trim($(element).text()) == "" && element.className.startsWith('rank') == false &&  element.className != 'guide'){
 					$(element).css("backgroundColor", "yellow");
 					error = error +1;
 				}
@@ -87,54 +94,53 @@ $(document).ready(function (curProb) {
 					$(element).css("backgroundColor", "");
 				}
 			});
-			if(error == 0){
-				var colors = [];
-				myrow.children('td').each(function(index, element){
-					if (element.className != "guide"){
-						colors.push($(element).children(0)[0].className);
-					};
-				});
-
-				if (testRow(colors, solution)){
-					alert("You Win");
-				}
-				else {
-					//waiting for algorithm. Here is dummy feedback for testing
-					//var result = randomResult();
-					//need to make COPY of array, rather than pass byRef!
-					var solutionCopy = solution.slice();
-					var result = checkGuess(colors, solutionCopy);
-					//alert(result);
-					displayFeedback(result, rowno);
-				}
-				$("#row" + rowno).find(".rank");
-				rowno = rowno +1;
-			}
-			else {
+			if(error != 0){
 				alert("Please fill out all cells");
+				return;
 			}
+			
+			var colors = [];
+			myrow.children('td').each(function(index, element){
+				if (element.className != "guide"){
+					colors.push($(element).children(0)[0].className);
+				};
+			});
+
+		
+			//Evaluate Guess to solution!
+			//need to make COPY of array, rather than pass byRef!
+			var solutionCopy = solution.slice();
+			var colorsCopy = colors.slice();
+			var result = checkGuess(colorsCopy, solutionCopy);
+			displayFeedback(result, rowno);
+			
+			//GAME WON?
+			if (testRow(colors, solution)){
+				$('#GameOver').text("Congratulatons, You win!");
+				$("#solutionA").show();
+				$("#solutionB").show();
+				$("#solutionC").show();
+				$("#solutionD").show();
+				$("#NewGame").show();
+				
+				return;
+			}
+			//GAME OVER:
+			else if (rowno == numofRows) {
+				$('#GameOver').text("Game Over. You Lose. You Sad, sad loser you.");
+				$("#solutionA").show();
+				$("#solutionB").show();
+				$("#solutionC").show();
+				$("#solutionD").show();
+				$("#NewGame").show();
+			}		
+			
+			$("#row" + rowno).find(".rank");
+			rowno = rowno +1;	
+			
 		}
 	}); 
 
-
-	
-	
-    $("#back").click(function () {
-        //load new questions
-        $(".answer").hide();
-        $("#answer").hide();
-        $(".question").show();
-        $fileNo = parseInt($("#count").text());
-        $("#count").text($fileNo - 1);
-        loadNewProb(fileNo);
-        event.preventDefault();
-    })
-
-    $("#showanswer").click(function () {
-        //load new questions
-        //alert("I was clciked");
-        $("#answer").show();
-    })
 });
 
 function textToSpan(text){
